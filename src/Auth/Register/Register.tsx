@@ -4,7 +4,7 @@ import PersonTwoToneIcon from "@mui/icons-material/PersonTwoTone";
 import LockIcon from "@mui/icons-material/Lock";
 import axios from "axios";
 import { countryData } from "../../Helpers/Data";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [fullname, setFullName] = useState("");
@@ -71,7 +71,6 @@ const Register = () => {
       const url = "https://react-tasks-nodejs-api.herokuapp.com/user/register"
       
       await axios.post(url,reqObj,config).then((res:any)=>{
-        debugger
         if(res.data.status==true)
         {
     localStorage.setItem("resObj",JSON.stringify(res.data.message))      
@@ -123,7 +122,7 @@ const Register = () => {
                 style={{ border: "none", backgroundColor: "blue" }}
                 onChange={handleSelect}
               >
-                {countryData.map((code,index)=>(<MenuItem key={index} value={code}>{code}</MenuItem>))}
+                {countryData.map((code:any,index:any)=>(<MenuItem key={index} value={code}>{code}</MenuItem>))}
               </Select>
               <Input
                 value={mobileno}
@@ -179,6 +178,7 @@ const Register = () => {
               >
                 Register
               </Button>
+              <Link to="/">Login</Link>
             </form>
           </div>
         </div>
