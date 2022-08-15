@@ -1,8 +1,9 @@
 import React from 'react'
-import Register from "./Auth/Register/Register"
+
 import Dashboard from "./Home/Dashboard"
 import Login from './Auth/Login/Login';
 import {BrowserRouter as Router ,Routes,Route} from "react-router-dom"
+import Register from './Auth/Register/Register';
 
 function App() {
   const routes = [
@@ -10,18 +11,18 @@ function App() {
       path: "*",
       element:<Login/> ,
     },
+     {
+      path: "/home",
+      element: <Dashboard/>,
+    },
     {
       path: "/Register",
       element: <Register/>,
     },
-    {
-      path: "/home",
-      element: <Dashboard/>,
-    },
   ];
   
 
-return (<>
+return (<div >
     <Router>
       <Routes>
       {routes.map((route, index) => (
@@ -31,7 +32,7 @@ return (<>
       ))}
       </Routes>
     </Router>
- </>
+ </div>
   );
 }
 

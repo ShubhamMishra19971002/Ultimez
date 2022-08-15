@@ -8,7 +8,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <div className='bg-cyan-900'><App ></App></div>
   </React.StrictMode>
 );
 
